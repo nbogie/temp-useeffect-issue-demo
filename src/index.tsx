@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import WebsiteRoutes from './Webpages/Routes';
+import WebsiteRoutes from "./Webpages/Routes";
 
 ReactDOM.render(
   <React.StrictMode>
