@@ -20,7 +20,7 @@ function Home(): JSX.Element {
   }, []);
 
   const recentrecs = displayRecs.map((rec, index) => (
-    <Recommendation key={index} id={rec.id} title={rec.title} author={rec.title} type={rec.type} summary={rec.summary} link={rec.link}/>
+    <Recommendation key={index} id={rec.id} title={rec.title} author={rec.author} type={rec.type} summary={rec.summary} link={rec.link}/>
   ))
 
   return (
