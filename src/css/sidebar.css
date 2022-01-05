@@ -1,26 +1,32 @@
 /*Structure*/
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@500&display=swap");
 .menubar {
-  margin: 20px;
+  border-right: solid;
+  width: 350px;
+  border-width: 2px;
+  border-color: #005506;
+  margin: none;
+  background-color: #ffffff;
 }
 #wrapper {
-  margin-left: auto;
+  margin-left: 10px;
   margin-right: auto;
-  height: auto;
+  height: 1038px;
   width: auto;
 }
 #inner {
   float: left;
   clear: left;
 }
-.menubar h1 {
+
+/*Buttons (links)*/
+.logo {
   font-family: "Bebas Neue", cursive;
   color: #005506;
   font-size: 4em;
-  margin-left: 20px;
+  text-decoration: none;
+  margin: 50px 0px 70px 20px;
 }
-
-/*Buttons (links)*/
 .sidebarbutton {
   background-image: linear-gradient(to right, #005506 0%, #058f0b 100%);
   border-radius: 50px;

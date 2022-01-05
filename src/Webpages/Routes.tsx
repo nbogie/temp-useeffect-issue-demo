@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import StudyList from "./studylist";
 import Recommended from "./recommended";
+import "../css/app.css";
 
 function WebsiteRoutes(): JSX.Element {
   return (
