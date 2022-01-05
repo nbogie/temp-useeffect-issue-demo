@@ -1,5 +1,11 @@
+import SideBarMenu from "../components/sidebarmenu";
+
 function Home(): JSX.Element {
-  return <h1>This is home page</h1>;
+  return (
+    <>
+      <SideBarMenu />
+    </>
+  );
 }
 
 export default Home;

@@ -1,16 +1,55 @@
-import CreateNewRec from "./createnewrec";
+// import CreateNewRec from './createnewrec';
+import "../css/sidebar.css";
 
 export default function SideBarMenu(): JSX.Element {
+  const members = ["Jenna Ram", "Hanna Sophian", "Truman Tong"].map(
+    (element, index) => (
+      <option value={element} key={index}>
+        {element}
+      </option>
+    )
+  );
+
   return (
-    <>
-      <button>Create New Recommendation</button>
-      <br />
-      <button>Podcast</button>
-      <button>Articles</button>
-      <button>Exercises</button>
-      <button>Videos</button>
-      <br />
-      <button>Study List</button>
-    </>
+    <div className="menubar" id="wrapper">
+      <h1>
+        The Social
+        <br />
+        Academy
+      </h1>
+      <br id="inner" />
+      <select className="dropdownmenu" name="login" id="inner">
+        <option value="" disabled selected>
+          Choose name to log in
+        </option>
+        {members}
+      </select>
+      <br id="inner" />
+      <br id="inner" />
+      <a className="sidebarbutton" id="inner" href="/">
+        <span className="span">+ Create New Recommendation</span>
+      </a>
+      <br id="inner" />
+      <br id="inner" />
+      <br id="inner" />
+      <a className="sidebarbutton" id="inner" href="/">
+        <span className="span">Podcast</span>
+      </a>
+      <a className="sidebarbutton" id="inner" href="/">
+        <span className="span">Articles</span>
+      </a>
+      <a className="sidebarbutton" id="inner" href="/">
+        <span className="span">Exercises</span>
+      </a>
+      <a className="sidebarbutton" id="inner" href="/">
+        <span className="span">Videos</span>
+      </a>
+      <br id="inner" />
+      <br id="inner" />
+      <br id="inner" />
+      <a className="sidebarbutton" id="inner" href="/">
+        <span className="span">My Study List</span>
+      </a>
+    </div>
   );
 }

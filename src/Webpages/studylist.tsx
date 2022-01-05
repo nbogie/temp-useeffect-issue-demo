@@ -1,5 +1,11 @@
+import SideBarMenu from "../components/sidebarmenu";
+
 function StudyList(): JSX.Element {
-  return <h2>This is studylist</h2>;
+  return (
+    <>
+      <SideBarMenu />
+    </>
+  );
 }
 
 export default StudyList;

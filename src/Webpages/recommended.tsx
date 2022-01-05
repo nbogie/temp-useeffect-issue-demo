@@ -1,5 +1,11 @@
+import SideBarMenu from "../components/sidebarmenu";
+
 function Recommended(): JSX.Element {
-  return <h1>This is recommended</h1>;
+  return (
+    <>
+      <SideBarMenu />
+    </>
+  );
 }
 
 export default Recommended;
