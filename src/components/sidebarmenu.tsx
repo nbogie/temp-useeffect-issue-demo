@@ -14,9 +14,7 @@ export default function SideBarMenu(): JSX.Element {
     <div className="menubar">
       <div id="wrapper">
         <a className="logo" id="inner" href="/">
-          <span className="span">
-            The Social Academy
-          </span>
+          <span className="span">The Social Academy</span>
         </a>
         <br id="inner" />
         <select className="dropdownmenu" name="login" id="inner">
@@ -48,7 +46,7 @@ export default function SideBarMenu(): JSX.Element {
         <br id="inner" />
         <br id="inner" />
         <br id="inner" />
-        <a className="sidebarbutton" id="inner" href="/">
+        <a className="sidebarbutton" id="inner" href="/studylist">
           <span className="span">My Study List</span>
         </a>
       </div>
