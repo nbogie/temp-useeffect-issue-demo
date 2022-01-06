@@ -30,8 +30,10 @@ export default function NewModal(): JSX.Element {
         onRequestClose={closeModal}
         contentLabel="Example Modal"
       >
-        <h1>Create New Recommendation</h1>
-        <button onClick={closeModal}>close</button>
+        <div className="row">
+          <div className="col-9"><h1>Create New Recommendation</h1></div>
+          <div className="col-1"><button onClick={closeModal}>Close</button></div>
+        </div>
         <form className="form" onSubmit={(e) => console.log(e)}>
           <label htmlFor="titleInput">Title:</label>
           <input id="titleinput" placeholder="Title" />
@@ -41,18 +43,32 @@ export default function NewModal(): JSX.Element {
           <input id="linkInput" placeholder="Link" />
 
           <label htmlFor="authorInput">Author:</label>
-          <input id="authorInput" placeholder="Author"></input>
-          <button onClick={() => setRecommend("Recommended")}>
+          <input id="authorInput" placeholder="Author" />
+          
+          <fieldset>
+          <label className="boxes"><input type="checkbox" />Recommended</label>
+          <label className="boxes"><input type="checkbox" />Not Recommended</label>
+          <label className="boxes"><input type="checkbox" />Looks Interesting</label> 
+          
+          </fieldset>
+          {/* <button onClick={() => setRecommend("Recommended")}>
             Recommended
-          </button>
-          <button onClick={() => setRecommend("Not Recommended")}>
+          </button> */}
+          {/* <button onClick={() => setRecommend("Not Recommended")}>
             Not Recommended
-          </button>
-          <button onClick={() => setRecommend("Looks Interesting")}>
+          </button> */}
+          {/* <button onClick={() => setRecommend("Looks Interesting")}>
             Looks Interesting
-          </button>
-          <textarea placeholder="Explain why you would/wouldn't recommend or why it looks interesting"></textarea>
-          <textarea placeholder="Description/Summary"></textarea>
+          </button> */}
+          
+          <label htmlFor="reasonInput">Reason:</label>
+          <textarea id="reasonInput" rows={5} placeholder="Explain your choice" />
+          
+          <label htmlFor="summaryInput">Summary:</label>
+          <textarea id="summaryInput" rows={5} placeholder="Summary of the description" />
+
+          {/* <textarea placeholder="Explain why you would/wouldn't recommend or why it looks interesting"></textarea>
+          <textarea placeholder="Description/Summary"></textarea> */}
           <button type="submit">Submit</button>
         </form>
         {/* <h2>Edit your message</h2>

@@ -8,6 +8,39 @@ input {
   font-size: 11px;
   padding: 4px 2px;
   border: solid 1px #aacfe4;
-  width: 70px;
+  width: 20%;
   margin: 2px 0 20px 10px;
+}
+
+textarea {
+  display: block;
+  font-size: 11px;
+  padding: 4px 2px;
+  border: solid 1px #aacfe4;
+  width: 100%;
+  margin: 2px 0 20px 10px;
+}
+
+#mymodal {
+  width: 50%;
+  margin: auto;
+}
+
+@media (orientation: portrait) {
+  #mymodal {
+width: 80%
+}
+}
+
+fieldset {
+  display: flex;
+}
+
+.boxes {
+  margin: auto; 
+}
+
+.close {
+  display: flex;
+  width: 100%;
 }
