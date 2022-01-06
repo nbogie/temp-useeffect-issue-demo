@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import "../css/NewModal.css";
+import separateCapitalise from "../utils/separateCapitalise";
 
 export default function NewModal(): JSX.Element {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -90,7 +91,7 @@ export default function NewModal(): JSX.Element {
                 checked={isChecked("recommended")}
                 onChange={() => handleCheckbox(0)}
               />
-              {recommendText[0]}
+              {separateCapitalise(recommendText[0])}
             </label>
             <label className="boxes">
               <input
@@ -98,7 +99,7 @@ export default function NewModal(): JSX.Element {
                 checked={isChecked("not-recommended")}
                 onChange={() => handleCheckbox(1)}
               />
-              {recommendText[1]}
+              {separateCapitalise(recommendText[1])}
             </label>
             <label className="boxes">
               <input
@@ -106,7 +107,7 @@ export default function NewModal(): JSX.Element {
                 checked={isChecked("looks-interesting")}
                 onChange={() => handleCheckbox(2)}
               />
-              {recommendText[2]}
+              {separateCapitalise(recommendText[2])}
             </label>
           </fieldset>
 
