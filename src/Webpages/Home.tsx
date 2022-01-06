@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import SideBarMenu from "../components/sidebarmenu";
 import Recommendation from "../components/recommendation";
-import { recommendation } from '../components/recommendation';
+import { recommendation } from "../components/recommendation";
 import "../css/app.css";
 
 function Home(): JSX.Element {
@@ -20,13 +20,21 @@ function Home(): JSX.Element {
   }, []);
 
   const recentrecs = displayRecs.map((rec, index) => (
-    <Recommendation key={index} id={rec.id} title={rec.title} author={rec.author} type={rec.type} summary={rec.summary} link={rec.link}/>
-  ))
+    <Recommendation
+      key={index}
+      id={rec.id}
+      title={rec.title}
+      author={rec.author}
+      type={rec.type}
+      summary={rec.summary}
+      link={rec.link}
+    />
+  ));
 
   return (
-    <div className='body-grid'>
+    <div className="body-grid">
       <SideBarMenu />
-      <div className='content'>
+      <div className="content">
         <h1>C3C4 Recommendations</h1>
         {recentrecs}
       </div>

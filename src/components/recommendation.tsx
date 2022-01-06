@@ -1,10 +1,10 @@
 export interface recommendation {
-  id: number,
-  title: string,
-  author:  string, 
-  type: string,
-  summary: string,
-  link: string,
+  id: number;
+  title: string;
+  author: string;
+  type: string;
+  summary: string;
+  link: string;
 }
 
 export default function Recommendation(props: recommendation): JSX.Element {
@@ -16,5 +16,3 @@ export default function Recommendation(props: recommendation): JSX.Element {
     </>
   );
 }
-
-
