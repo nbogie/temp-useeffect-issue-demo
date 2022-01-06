@@ -1,5 +1,6 @@
 // import CreateNewRec from './createnewrec';
 import "../css/sidebar.css";
+import NewModal from "./NewModal";
 
 export default function SideBarMenu(): JSX.Element {
   const members = ["Jenna Ram", "Hanna Sophian", "Truman Tong"].map(
@@ -28,6 +29,7 @@ export default function SideBarMenu(): JSX.Element {
         <a className="sidebarbutton" id="inner" href="/recommended">
           <span className="span">+ Create New Recommendation</span>
         </a>
+        <NewModal />
         <br id="inner" />
         <br id="inner" />
         <br id="inner" />
