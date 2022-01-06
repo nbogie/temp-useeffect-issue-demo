@@ -26,9 +26,9 @@ export default function SideBarMenu(): JSX.Element {
         </select>
         <br id="inner" />
         <br id="inner" />
-        <a className="sidebarbutton" id="inner" href="/recommended">
+        {/* <a className="sidebarbutton" id="inner" href="/recommended">
           <span className="span">+ Create New Recommendation</span>
-        </a>
+        </a> */}
         <NewModal />
         <br id="inner" />
         <br id="inner" />

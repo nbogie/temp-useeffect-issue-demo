@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Modal from "react-modal";
-
+import "../css/NewModal.css";
 
 export default function NewModal(): JSX.Element {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [name, setName] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
+  // const [name, setName] = useState<string>("");
+  // const [message, setMessage] = useState<string>("");
+  const [recommend, setRecommend] = useState<string>();
 
   function openModal() {
     setIsOpen(true);
@@ -19,8 +20,9 @@ export default function NewModal(): JSX.Element {
 
   return (
     <>
-      <button onClick={openModal}>Edit</button>
-      <button >Delete</button>
+      <div className="sidebarbutton" onClick={openModal}>
+        <span className="span">+ Create New Recommendation</span>
+      </div>
       <Modal
         id="mymodal"
         isOpen={modalIsOpen}
@@ -28,7 +30,32 @@ export default function NewModal(): JSX.Element {
         onRequestClose={closeModal}
         contentLabel="Example Modal"
       >
-        <h2>Edit your message</h2>
+        <h1>Create New Recommendation</h1>
+        <button onClick={closeModal}>close</button>
+        <form className="form" onSubmit={(e) => console.log(e)}>
+          <label htmlFor="titleInput">Title:</label>
+          <input id="titleinput" placeholder="Title" />
+
+
+          <label htmlFor="linkInput">URL:</label>
+          <input id="linkInput" placeholder="Link" />
+
+          <label htmlFor="authorInput">Author:</label>
+          <input id="authorInput" placeholder="Author"></input>
+          <button onClick={() => setRecommend("Recommended")}>
+            Recommended
+          </button>
+          <button onClick={() => setRecommend("Not Recommended")}>
+            Not Recommended
+          </button>
+          <button onClick={() => setRecommend("Looks Interesting")}>
+            Looks Interesting
+          </button>
+          <textarea placeholder="Explain why you would/wouldn't recommend or why it looks interesting"></textarea>
+          <textarea placeholder="Description/Summary"></textarea>
+          <button type="submit">Submit</button>
+        </form>
+        {/* <h2>Edit your message</h2>
         <button onClick={closeModal}>close</button>
         <form className="form" onSubmit={(e) => console.log(e)}>
           <label htmlFor="nameInput">Name:</label>
@@ -49,7 +76,7 @@ export default function NewModal(): JSX.Element {
             }}
           />
           <button type="submit">Submit</button>
-        </form>
+        </form> */}
       </Modal>
     </>
   );
