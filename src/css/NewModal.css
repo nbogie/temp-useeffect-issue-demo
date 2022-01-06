@@ -28,8 +28,8 @@ textarea {
 
 @media (orientation: portrait) {
   #mymodal {
-width: 80%
-}
+    width: 80%;
+  }
 }
 
 fieldset {
@@ -37,7 +37,7 @@ fieldset {
 }
 
 .boxes {
-  margin: auto; 
+  margin: auto;
 }
 
 .close {

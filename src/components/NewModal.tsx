@@ -16,9 +16,9 @@ export default function NewModal(): JSX.Element {
     setIsOpen(true);
   }
 
-  useEffect(() =>
-  { console.log(recommend)}, [recommend])
-  
+  useEffect(() => {
+    console.log(recommend);
+  }, [recommend]);
 
   // function afterOpenModal() {}
 
@@ -26,24 +26,19 @@ export default function NewModal(): JSX.Element {
     setIsOpen(false);
   }
 
+  const recommendText = ["recommended", "not-recommended", "looks-interesting"];
+
   function handleCheckbox(tickedBox: number) {
-    if (recommend === "") {
-    let message = ""
-    switch (tickedBox) {
-      case 1:
-        message="recommended";
-        break;
-      case 2:
-        message = "not-recommended";
-        break;
-      case 3:
-        message = "looks-interesting";
-        break;
+    if (recommend !== recommendText[tickedBox]) {
+      const message = recommendText[tickedBox];
+      setRecommend(message);
+    } else {
+      setRecommend("");
     }
-    setRecommend(message)
-  } else {
-    setRecommend("")
   }
+
+  function isChecked(str: string): boolean {
+    return str === recommend ? true : false;
   }
 
   return (
@@ -59,37 +54,80 @@ export default function NewModal(): JSX.Element {
         contentLabel="Example Modal"
       >
         <div className="row">
-          <div className="col-9"><h1>Create New Recommendation</h1></div>
-          <div className="col-1"><button onClick={closeModal}>Close</button></div>
+          <div className="col-9">
+            <h1>Create New Recommendation</h1>
+          </div>
+          <div className="col-1">
+            <button onClick={closeModal}>Close</button>
+          </div>
         </div>
         <form className="form" onSubmit={(e) => console.log(e)}>
           <label htmlFor="titleInput">Title:</label>
-          <input id="titleinput" placeholder="Title" onChange={(e) => setTitle(e.target.value)}/>
-
+          <input
+            id="titleinput"
+            placeholder="Title"
+            onChange={(e) => setTitle(e.target.value)}
+          />
 
           <label htmlFor="linkInput">URL:</label>
-          <input id="linkInput" placeholder="Link" onChange={(e) => setLink(e.target.value)}/>
+          <input
+            id="linkInput"
+            placeholder="Link"
+            onChange={(e) => setLink(e.target.value)}
+          />
 
           <label htmlFor="authorInput">Author:</label>
-          <input id="authorInput" placeholder="Author" onChange={(e) => setAuthor(e.target.value)}/>
-          
+          <input
+            id="authorInput"
+            placeholder="Author"
+            onChange={(e) => setAuthor(e.target.value)}
+          />
+
           <fieldset>
-          <label className="boxes"><input type="checkbox" onChange={() => handleCheckbox(1)}/>Recommended</label>
-          <label className="boxes"><input type="checkbox" onChange={() => handleCheckbox(2)}/>Not Recommended</label>
-          <label className="boxes"><input type="checkbox" onChange={() => handleCheckbox(3)}/>Looks Interesting</label> 
-          
+            <label className="boxes">
+              <input
+                type="checkbox"
+                checked={isChecked("recommended")}
+                onChange={() => handleCheckbox(0)}
+              />
+              {recommendText[0]}
+            </label>
+            <label className="boxes">
+              <input
+                type="checkbox"
+                checked={isChecked("not-recommended")}
+                onChange={() => handleCheckbox(1)}
+              />
+              {recommendText[1]}
+            </label>
+            <label className="boxes">
+              <input
+                type="checkbox"
+                checked={isChecked("looks-interesting")}
+                onChange={() => handleCheckbox(2)}
+              />
+              {recommendText[2]}
+            </label>
           </fieldset>
-         
-          
+
           <label htmlFor="reasonInput">Reason:</label>
-          <textarea id="reasonInput" rows={5} placeholder="Explain your choice" onChange={(e) => setReason(e.target.value)}/>
-          
+          <textarea
+            id="reasonInput"
+            rows={5}
+            placeholder="Explain your choice"
+            onChange={(e) => setReason(e.target.value)}
+          />
+
           <label htmlFor="summaryInput">Summary:</label>
-          <textarea id="summaryInput" rows={5} placeholder="Summary of the description" onChange={(e) => setSummary(e.target.value)}/>
+          <textarea
+            id="summaryInput"
+            rows={5}
+            placeholder="Summary of the description"
+            onChange={(e) => setSummary(e.target.value)}
+          />
 
           <button type="submit">Submit</button>
         </form>
-        
       </Modal>
     </>
   );
