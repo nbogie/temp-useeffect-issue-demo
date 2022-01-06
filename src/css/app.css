@@ -1,0 +1,11 @@
+body {
+  background-color: #001b0136;
+  margin: 0;
+}
+
+.body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-template-columns: 400px auto;
+}
