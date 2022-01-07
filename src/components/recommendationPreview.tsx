@@ -7,15 +7,16 @@ export interface recommendation {
   type: string;
   summary: string;
   link: string;
+  user_id: number;
 }
 
-export default function Recommendation(props: recommendation): JSX.Element {
+export default function RecommendationPreview(props: recommendation): JSX.Element {
   return (
     <div className="rec-preview">
       <p>{props.title}</p>
       <a href={props.link}>Click Here</a>
       <p>{props.summary}</p>
-      <p>uploaded by {props.author}</p>
+      <p>uploaded by {props.user_id}</p>
     </div>
   );
 }
