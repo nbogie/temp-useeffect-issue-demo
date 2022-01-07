@@ -10,7 +10,7 @@ function Home(): JSX.Element {
   useEffect(() => {
     const fetchEpisodes = async () => {
       const response = await fetch(
-        "http://backend-c3c4.herokuapp.com/recentrecs"
+        "https://backend-c3c4.herokuapp.com/recentrecs"
       );
       const jsonBody = await response.json();
       setDisplayRecs(jsonBody.data);
