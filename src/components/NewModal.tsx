@@ -73,30 +73,30 @@ export default function NewModal(): JSX.Element {
         onRequestClose={closeModal}
         contentLabel="Example Modal"
       >
-        <div className="row">
-          <div className="col-9">
+        <div className="nav">
+          <div className="title">
             <h1>Create New Recommendation</h1>
           </div>
-          <div className="col-1">
+          <div className="close">
             <button onClick={closeModal}>Close</button>
           </div>
         </div>
         <form className="form" onSubmit={() => handleSubmitRec()}>
-          <label htmlFor="titleInput">Title:</label>
+          <label htmlFor="titleInput">Title</label>
           <input
             id="titleinput"
             placeholder="Title"
             onChange={(e) => setTitle(e.target.value)}
           />
 
-          <label htmlFor="linkInput">URL:</label>
+          <label htmlFor="linkInput">URL</label>
           <input
             id="linkInput"
             placeholder="Link"
             onChange={(e) => setLink(e.target.value)}
           />
 
-          <label htmlFor="authorInput">Author:</label>
+          <label htmlFor="authorInput">Author</label>
           <input
             id="authorInput"
             placeholder="Author"
@@ -129,8 +129,8 @@ export default function NewModal(): JSX.Element {
               {separateCapitalise(recommendText[2])}
             </label>
           </fieldset>
-
-          <label htmlFor="reasonInput">Reason:</label>
+          <br />
+          <label htmlFor="reasonInput">Reason</label>
           <textarea
             id="reasonInput"
             rows={5}
@@ -138,7 +138,7 @@ export default function NewModal(): JSX.Element {
             onChange={(e) => setReason(e.target.value)}
           />
 
-          <label htmlFor="summaryInput">Summary:</label>
+          <label htmlFor="summaryInput">Summary</label>
           <textarea
             id="summaryInput"
             rows={5}
