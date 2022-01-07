@@ -9,7 +9,7 @@ export default async function postData(
   try {
     // if (postEndpoint )
     const response = await fetch(
-      `http://backend-c3c4.herokuapp.com${postEndpoint}`,
+      `https://backend-c3c4.herokuapp.com${postEndpoint}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
