@@ -10,7 +10,9 @@ export interface recommendation {
   user_id: number;
 }
 
-export default function RecommendationPreview(props: recommendation): JSX.Element {
+export default function RecommendationPreview(
+  props: recommendation
+): JSX.Element {
   return (
     <div className="rec-preview">
       <p>{props.title}</p>

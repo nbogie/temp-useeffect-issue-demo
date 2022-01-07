@@ -3,6 +3,8 @@ import Modal from "react-modal";
 import "../css/NewModal.css";
 import separateCapitalise from "../utils/separateCapitalise";
 import postData from "../utils/postData";
+import TypeFetch from "../utils/TypeFetch";
+// import separateCapitalise from "../utils/separateCapitalise";
 
 export default function NewModal(): JSX.Element {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -13,6 +15,16 @@ export default function NewModal(): JSX.Element {
   const [summary, setSummary] = useState<string>("");
   // const [message, setMessage] = useState<string>("");
   const [recommend, setRecommend] = useState<string>("");
+  const [type, setType] = useState<string>("");
+  const [recTypes, setRecTypes] = useState<string[]>([]);
+
+  useEffect(() => {
+    TypeFetch().then((result) => {
+      if (result) {
+        setRecTypes(result);
+      }
+    });
+  }, []);
 
   function openModal() {
     setIsOpen(true);
@@ -61,6 +73,16 @@ export default function NewModal(): JSX.Element {
     }
   };
 
+  const typeOptions = recTypes.map((type) => (
+    <option key={type} value={type}> 
+    {separateCapitalise(type)}
+    </option>
+  ));
+
+  useEffect(() => {
+    console.log(type);
+  }, [type]);
+
   return (
     <>
       <div className="sidebarbutton" onClick={openModal}>
@@ -102,6 +124,34 @@ export default function NewModal(): JSX.Element {
             placeholder="Author"
             onChange={(e) => setAuthor(e.target.value)}
           />
+
+          {/* <div className="dropdown">
+            <button
+              className="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Category
+            </button>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              {type}
+            </div>
+          </div> */}
+
+          <label htmlFor="typeInput">Category</label>
+          <select
+            key="typeInput"
+            id="typeInput"
+            value={type}
+            onChange={(e) => {
+              setType(e.target.value);
+            }}
+          >
+            {typeOptions}
+          </select>
 
           <fieldset>
             <label className="boxes">
