@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import "../css/NewModal.css";
 import separateCapitalise from "../utils/separateCapitalise";
+import postData from "../utils/postData";
 
 export default function NewModal(): JSX.Element {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -42,6 +43,24 @@ export default function NewModal(): JSX.Element {
     return str === recommend ? true : false;
   }
 
+  const handleSubmitRec = () => {
+    if (link !== "") {
+      postData("/rec", {
+        title: title,
+        link: link,
+        author: author,
+        type: "podcast",
+        status: recommend,
+        reason: reason,
+        summary: summary,
+        tags: ["creative-coding"],
+        user_id: 1,
+      });
+    } else {
+      window.alert("Cannot submit a paste with an empty link.");
+    }
+  };
+
   return (
     <>
       <div className="sidebarbutton" onClick={openModal}>
@@ -62,7 +81,7 @@ export default function NewModal(): JSX.Element {
             <button onClick={closeModal}>Close</button>
           </div>
         </div>
-        <form className="form" onSubmit={(e) => console.log(e)}>
+        <form className="form" onSubmit={() => handleSubmitRec()}>
           <label htmlFor="titleInput">Title:</label>
           <input
             id="titleinput"
@@ -127,7 +146,7 @@ export default function NewModal(): JSX.Element {
             onChange={(e) => setSummary(e.target.value)}
           />
 
-          <button type="submit">Submit</button>
+          <button type="submit"> Submit</button>
         </form>
       </Modal>
     </>
