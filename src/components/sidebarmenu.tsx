@@ -2,7 +2,7 @@
 import "../css/sidebar.css";
 import TypeFetch from "../utils/TypeFetch";
 import NewModal from "./NewModal";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import separateCapitalise from "../utils/separateCapitalise";
 
 export default function SideBarMenu(): JSX.Element {
@@ -17,13 +17,12 @@ export default function SideBarMenu(): JSX.Element {
   );
 
   useEffect(() => {
-
     TypeFetch().then((result) => {
       if (result) {
-        setRecTypes(result)
+        setRecTypes(result);
       }
-    })
-  }, [])
+    });
+  }, []);
   const types = recTypes.map((element: string, index: number) => (
     <a className="sidebarbutton" id="inner" href="/" key={index}>
       <span className="span">{separateCapitalise(element)}</span>
