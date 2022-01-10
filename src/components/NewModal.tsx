@@ -18,10 +18,6 @@ export default function NewModal(): JSX.Element {
     setIsOpen(true);
   }
 
-  useEffect(() => {
-    console.log(recommend);
-  }, [recommend]);
-
   // function afterOpenModal() {}
 
   function closeModal() {
