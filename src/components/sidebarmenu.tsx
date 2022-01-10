@@ -1,5 +1,6 @@
 // import CreateNewRec from './createnewrec';
 import "../css/sidebar.css";
+import UsersFetch from "../utils/UsersFetch";
 import TypeFetch from "../utils/TypeFetch";
 import NewModal from "./NewModal";
 import { useState, useEffect } from "react";
@@ -7,14 +8,21 @@ import separateCapitalise from "../utils/separateCapitalise";
 
 export default function SideBarMenu(): JSX.Element {
   const [recTypes, setRecTypes] = useState<string[]>([]);
+  const [users, setUsers] = useState<{ id: number; name: string }[]>([]);
 
-  const members = ["Jenna Ram", "Hanna Sophian", "Truman Tong"].map(
-    (element, index) => (
-      <option value={element} key={index}>
-        {element}
-      </option>
-    )
-  );
+  useEffect(() => {
+    UsersFetch().then((result) => {
+      if (result) {
+        setUsers(result);
+      }
+    });
+  }, []);
+
+  const usersList = users.map((element, index) => (
+    <option value={element.id} key={index}>
+      {element.name}
+    </option>
+  ));
 
   useEffect(() => {
     TypeFetch().then((result) => {
@@ -40,7 +48,7 @@ export default function SideBarMenu(): JSX.Element {
           <option value="" disabled selected>
             Choose name to log in
           </option>
-          {members}
+          {usersList}
         </select>
         <br id="inner" />
         <br id="inner" />
