@@ -74,8 +74,8 @@ export default function NewModal(): JSX.Element {
   };
 
   const typeOptions = recTypes.map((type) => (
-    <option key={type} value={type}> 
-    {separateCapitalise(type)}
+    <option key={type} value={type}>
+      {separateCapitalise(type)}
     </option>
   ));
 
