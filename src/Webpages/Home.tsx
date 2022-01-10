@@ -4,7 +4,7 @@ import RecommendationPreview from "../components/recommendationPreview";
 import { recommendation } from "../components/recommendationPreview";
 import "../css/app.css";
 
-interface HomeProps{
+interface HomeProps {
   currentUser: number;
   setCurrentUser: React.Dispatch<React.SetStateAction<number>>;
 }
@@ -40,7 +40,10 @@ function Home(props: HomeProps): JSX.Element {
 
   return (
     <div className="body-grid">
-      <SideBarMenu currentUser={props.currentUser} setCurrentUser={props.setCurrentUser}/>
+      <SideBarMenu
+        currentUser={props.currentUser}
+        setCurrentUser={props.setCurrentUser}
+      />
       <div className="content">
         <p>{props.currentUser}</p>
         <h1>C3C4 Recommendations</h1>

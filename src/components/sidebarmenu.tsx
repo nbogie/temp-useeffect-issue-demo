@@ -6,7 +6,7 @@ import NewModal from "./NewModal";
 import { useState, useEffect } from "react";
 import separateCapitalise from "../utils/separateCapitalise";
 
-interface SidebarProps{
+interface SidebarProps {
   currentUser: number;
   setCurrentUser: React.Dispatch<React.SetStateAction<number>>;
 }
