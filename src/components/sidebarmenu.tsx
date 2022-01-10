@@ -6,7 +6,12 @@ import NewModal from "./NewModal";
 import { useState, useEffect } from "react";
 import separateCapitalise from "../utils/separateCapitalise";
 
-export default function SideBarMenu(): JSX.Element {
+interface SidebarProps{
+  currentUser: number;
+  setCurrentUser: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export default function SideBarMenu(props: SidebarProps): JSX.Element {
   const [recTypes, setRecTypes] = useState<string[]>([]);
   const [users, setUsers] = useState<{ id: number; name: string }[]>([]);
 

@@ -8,6 +8,7 @@ export interface recommendation {
   summary: string;
   link: string;
   user_id: number;
+  name: string;
 }
 
 export default function RecommendationPreview(
