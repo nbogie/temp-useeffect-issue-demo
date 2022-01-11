@@ -1,21 +1,15 @@
 import "../css/recPreview.css";
-
-export interface recommendation {
-  id: number;
-  title: string;
-  author: string;
-  type: string;
-  summary: string;
-  link: string;
-}
+import { recommendation } from "./recentrecs";
+// import httpResponseProps from "../utils/httpResponseProps"
 
 export default function Recommendation(props: recommendation): JSX.Element {
+  const resource = async () => {
+    const response = await fetch(`https://backend-c3c4.herokuapp.com/rec/${props.id}`);
+    // const jsonBody:httpResponseProps = await response.json();
+  }
+
   return (
     <div className="rec-preview">
-      <p>{props.title}</p>
-      <a href={props.link}>Click Here</a>
-      <p>{props.summary}</p>
-      <p>uploaded by {props.author}</p>
     </div>
   );
 }

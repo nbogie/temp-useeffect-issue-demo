@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import SideBarMenu from "../components/sidebarmenu";
-import Recommendation from "../components/recommendation";
-import { recommendation } from "../components/recommendation";
+import RecentRecs from "../components/recentrecs";
+import { recommendation } from "../components/recentrecs";
 import "../css/app.css";
 
 function Home(): JSX.Element {
@@ -20,7 +20,7 @@ function Home(): JSX.Element {
   }, []);
 
   const recentrecs = displayRecs.map((rec, index) => (
-    <Recommendation
+    <RecentRecs
       key={index}
       id={rec.id}
       title={rec.title}
