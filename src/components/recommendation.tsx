@@ -8,8 +8,8 @@ export default function Recommendation(props: recommendation): JSX.Element {
       `https://backend-c3c4.herokuapp.com/rec/${props.id}`
     );
     // const jsonBody:httpResponseProps = await response.json();
-    return response
+    return response;
   };
-  console.log(resource)
+  console.log(resource);
   return <div className="rec-preview"></div>;
 }
