@@ -81,7 +81,7 @@ export default function NewModal(): JSX.Element {
 
   return (
     <>
-      <div className="sidebarbutton" onClick={openModal}>
+      <div className="sidebarbutton" id="newrec" onClick={openModal}>
         <span className="span">+ Create New Recommendation</span>
       </div>
       <Modal

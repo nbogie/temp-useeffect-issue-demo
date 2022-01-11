@@ -46,14 +46,12 @@ export default function SideBarMenu(props: SidebarProps): JSX.Element {
   return (
     <div className="menubar">
       <div id="wrapper">
-        {/* <a className="logo" id="inner" href="/"> */}
         <Link to="/" className="logo" id="inner">
           <span className="span">The Social Academy</span>
         </Link>
-        {/* </a> */}
         <br id="inner" />
         <select
-          className="dropdownmenu"
+          className="login-dropdown"
           name="login"
           id="inner"
           value={props.currentUser}
@@ -68,33 +66,16 @@ export default function SideBarMenu(props: SidebarProps): JSX.Element {
         </select>
         <br id="inner" />
         <br id="inner" />
-        {/* <a className="sidebarbutton" id="inner" href="/recommended">
-          <span className="span">+ Create New Recommendation</span>
-        </a> */}
         <NewModal />
         <br id="inner" />
         <br id="inner" />
         <br id="inner" />
-        {/* <a className="sidebarbutton" id="inner" href="/studylist"> */}
         <Link className="sidebarbutton" id="inner" to="/studylist">
           <span className="span">My Study List</span>
         </Link>
-        {/* </a> */}
         <br id="inner" />
         <br id="inner" />
         <br id="inner" />
-        {/* <a className="sidebarbutton" id="inner" href="/">
-          <span className="span">Podcast</span>
-        </a>
-        <a className="sidebarbutton" id="inner" href="/">
-          <span className="span">Articles</span>
-        </a>
-        <a className="sidebarbutton" id="inner" href="/">
-          <span className="span">Exercises</span>
-        </a>
-        <a className="sidebarbutton" id="inner" href="/">
-          <span className="span">Videos</span>
-        </a> */}
         {types}
       </div>
     </div>
