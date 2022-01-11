@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import WebsiteRoutes from "./Webpages/Routes";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <WebsiteRoutes />
   </React.StrictMode>,
   document.getElementById("root")
 );

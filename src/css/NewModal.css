@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@200&display=swap");
+
+h1 {
+  color: #005506;
+  font-family: "Roboto", sans-serif;
+}
+
+br {
+  display: block;
+  margin: 10px 00;
+}
+
+input {
+  display: block;
+  font-size: 15px;
+  padding: 4px 2px;
+  border: solid 1px #aacfe4;
+  width: 100%;
+  margin: 5px 0 20px 0px;
+  font-family: "Roboto", sans-serif;
+  border-radius: 5px;
+}
+
+textarea {
+  display: block;
+  font-size: 15px;
+  padding: 4px 2px;
+  border: solid 1px #aacfe4;
+  width: 100%;
+  margin: 5px 0 10px 0px;
+  font-family: "Roboto", sans-serif;
+  border-radius: 5px;
+}
+
+label {
+  font-size: 20px;
+  color: #005506;
+  font-family: "Roboto", sans-serif;
+}
+
+fieldset {
+  border-radius: 10px;
+  border-color: #005506;
+}
+
+#mymodal {
+  width: 50%;
+  margin: auto;
+}
+
+@media (orientation: portrait) {
+  #mymodal {
+    width: 80%;
+  }
+}
+
+fieldset {
+  display: flex;
+}
+
+.boxes {
+  margin: auto;
+}
+
+.close {
+  display: flex;
+  width: 100%;
+}
+
+button {
+  color: #005506;
+  border-color: #005506;
+  border-radius: 10px;
+  background-color: #ffffff;
+  font-size: 1em;
+}
+
+button:hover {
+  color: #ffffff;
+  border-color: #005506;
+  border-radius: 10px;
+  background-color: #005506;
+  font-size: 1em;
+  font-family: "Roboto", sans-serif;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  margin-top: 0px;
+}
+
+.close {
+  flex: 1;
+  margin-left: 400px;
+}
