@@ -1,9 +1,8 @@
 /**
  * Turn text such as "not-recommended" into "Not Recommended"
  */
-
 export default function separateCapitalise(inputStr: string): string {
-  const words = inputStr.split("-");
+  const words = inputStr.split(/[ -]/); //"/[ -]/"regex that allows for two separators
   const outputWords = [];
   for (const word of words) {
     const wordArr = word.split("");
