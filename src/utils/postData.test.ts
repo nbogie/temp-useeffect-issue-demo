@@ -1,7 +1,7 @@
 import postData from "./postData";
 
 test("posting a new recommendation returns a success status and the correct data", async () => {
-  let response = await postData("/rec", {
+  const response = await postData("/rec", {
     title: "Resource on reduce function",
     link: "https://google.com/reduce",
     author: "Nico",
@@ -12,9 +12,8 @@ test("posting a new recommendation returns a success status and the correct data
     tags: ["creative-coding"],
     user_id: 1,
   });
-  if (response) {
-    expect(response.data[0].author).toStrictEqual("Nico");
-    expect(response.data[0].status).toStrictEqual("recommend");
-    expect(response.status).toStrictEqual("success");
-  }
+
+  expect(response ? response.data[0].author : "").toStrictEqual("Nico");
+  expect(response ? response.data[0].status : "").toStrictEqual("recommend");
+  expect(response ? response.status : "").toStrictEqual("success");
 });

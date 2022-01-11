@@ -6,7 +6,6 @@ export default async function postData(
   info: NewRecProps
 ): Promise<httpResponsesProps | void> {
   //postType: newRec, comment, studyList
-
   try {
     // if (postEndpoint )
     const response = await fetch(
