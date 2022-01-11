@@ -7,7 +7,7 @@ import { useState } from "react";
 
 function WebsiteRoutes(): JSX.Element {
   const [currentUser, setCurrentUser] = useState<number>(0);
-  
+
   return (
     <Router>
       <Routes>

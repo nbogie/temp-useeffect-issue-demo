@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import separateCapitalise from "../utils/separateCapitalise";
 import { Link } from "react-router-dom";
 
-
 interface SidebarProps {
   currentUser: number;
   setCurrentUser: React.Dispatch<React.SetStateAction<number>>;
@@ -44,18 +43,24 @@ export default function SideBarMenu(props: SidebarProps): JSX.Element {
     </a>
   ));
 
-
-
   return (
     <div className="menubar">
       <div id="wrapper">
         {/* <a className="logo" id="inner" href="/"> */}
         <Link to="/" className="logo" id="inner">
           <span className="span">The Social Academy</span>
-          </Link>
+        </Link>
         {/* </a> */}
         <br id="inner" />
-        <select className="dropdownmenu" name="login" id="inner" value={props.currentUser} onChange={(e) => {props.setCurrentUser(parseInt(e.target.value))}}>
+        <select
+          className="dropdownmenu"
+          name="login"
+          id="inner"
+          value={props.currentUser}
+          onChange={(e) => {
+            props.setCurrentUser(parseInt(e.target.value));
+          }}
+        >
           <option value={0} disabled>
             Choose name to log in
           </option>
@@ -73,7 +78,7 @@ export default function SideBarMenu(props: SidebarProps): JSX.Element {
         {/* <a className="sidebarbutton" id="inner" href="/studylist"> */}
         <Link className="sidebarbutton" id="inner" to="/studylist">
           <span className="span">My Study List</span>
-          </Link>
+        </Link>
         {/* </a> */}
         <br id="inner" />
         <br id="inner" />
