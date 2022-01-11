@@ -1,4 +1,4 @@
-import httpResponsesProps from "./httpResponsesProps";
+import httpResponsesProps from "../utils/httpResponsesProps";
 import { NewRecProps } from "./NewRecProps";
 
 export default async function postData(

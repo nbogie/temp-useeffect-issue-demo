@@ -1,3 +1,4 @@
+import Recommendation from "../components/recommendation";
 import SideBarMenu from "../components/sidebarmenu";
 import "../css/app.css";
 
@@ -14,10 +15,7 @@ function Recommended(props: RecommendedProps): JSX.Element {
         setCurrentUser={props.setCurrentUser}
       />
 
-      <div>
-        <h1>Recommended</h1>
-        <p>{props.currentUser}</p>
-      </div>
+      <Recommendation />
     </div>
   );
 }

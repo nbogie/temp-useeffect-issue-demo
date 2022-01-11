@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import SideBarMenu from "../components/sidebarmenu";
 import RecentRecs from "../components/recommendationPreview";
-import { recommendationProps } from "../components/recommendationPreview";
+import { recSummaryProps } from "../components/recommendationPreview";
 import "../css/app.css";
 
 interface HomeProps {
@@ -10,7 +10,7 @@ interface HomeProps {
 }
 
 function Home(props: HomeProps): JSX.Element {
-  const [displayRecs, setDisplayRecs] = useState<recommendationProps[]>([]);
+  const [displayRecs, setDisplayRecs] = useState<recSummaryProps[]>([]);
 
   useEffect(() => {
     const fetchEpisodes = async () => {
