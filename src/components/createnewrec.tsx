@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function CreateNewRec(): JSX.Element {
   const [recommend, setRecommend] = useState<string>();
 
+  console.log(recommend)
   return (
     <>
       <h1>Create New Recommendation</h1>

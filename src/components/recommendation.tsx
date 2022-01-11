@@ -4,12 +4,12 @@ import { recommendation } from "./recentrecs";
 
 export default function Recommendation(props: recommendation): JSX.Element {
   const resource = async () => {
-    const response = await fetch(`https://backend-c3c4.herokuapp.com/rec/${props.id}`);
+    const response = await fetch(
+      `https://backend-c3c4.herokuapp.com/rec/${props.id}`
+    );
     // const jsonBody:httpResponseProps = await response.json();
-  }
-
-  return (
-    <div className="rec-preview">
-    </div>
-  );
+    return response
+  };
+  console.log(resource)
+  return <div className="rec-preview"></div>;
 }
