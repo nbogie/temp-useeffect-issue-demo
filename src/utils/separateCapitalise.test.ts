@@ -6,4 +6,7 @@ test("separateCapitalise returns the input string with the first letter capitali
     expect(separateCapitalise("-world")).toStrictEqual("World");
     expect(separateCapitalise(" hello world")).toStrictEqual("Hello World");
     expect(separateCapitalise(" -world")).toStrictEqual("World");
+    expect(separateCapitalise("not-recommended")).toBe("Not Recommended");
+    expect(separateCapitalise("richard")).toBe("Richard");
+    expect(separateCapitalise("ACADEMY-SCHOLARS")).toBe("ACADEMY SCHOLARS");
 })
