@@ -36,7 +36,7 @@ export default function SideBarMenu(): JSX.Element {
           <span className="span">The Social Academy</span>
         </a>
         <br id="inner" />
-        <select className="dropdownmenu" name="login" id="inner">
+        <select className="login-dropdown" name="login" id="inner">
           <option value="" disabled selected>
             Choose name to log in
           </option>
