@@ -16,7 +16,6 @@ function Recommended(props: RecommendedProps): JSX.Element {
 
       <div>
         <h1>Recommended</h1>
-        <p>{props.currentUser}</p>
       </div>
     </div>
   );

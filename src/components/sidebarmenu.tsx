@@ -24,6 +24,16 @@ export default function SideBarMenu(props: SidebarProps): JSX.Element {
     });
   }, []);
 
+  function getUserName(id: number) {
+    let name = "";
+    for (const user of users) {
+      if (user.id === id) {
+        name = user.name;
+      }
+    }
+    return name;
+  }
+
   const usersList = users.map((element, index) => (
     <option value={element.id} key={index}>
       {element.name}
@@ -68,7 +78,8 @@ export default function SideBarMenu(props: SidebarProps): JSX.Element {
         )}
         {props.currentUser !== 0 && (
           <div className="logged-in">
-            <p>You are logged in as {props.currentUser}</p>
+            <p>You are logged in as {getUserName(props.currentUser)}</p>
+            {/* <p>{}</p> */}
             <Link className="sidebarbutton" id="inner" to="#">
               <span
                 className="span"
