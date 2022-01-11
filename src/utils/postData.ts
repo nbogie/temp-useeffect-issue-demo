@@ -1,11 +1,11 @@
+import httpResponsesProps from "./httpResponsesProps";
 import { NewRecProps } from "./NewRecProps";
 
 export default async function postData(
   postEndpoint: string,
   info: NewRecProps
-): Promise<void> {
+): Promise<httpResponsesProps | void> {
   //postType: newRec, comment, studyList
-
   try {
     // if (postEndpoint )
     const response = await fetch(
@@ -16,7 +16,9 @@ export default async function postData(
         body: JSON.stringify(info),
       }
     );
-    console.log(response);
+    // console.log(response);
+    const jsonBody: httpResponsesProps = await response.json();
+    return jsonBody;
   } catch (error) {
     console.log(error);
   }

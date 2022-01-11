@@ -1,12 +1,21 @@
 import SideBarMenu from "../components/sidebarmenu";
 import "../css/app.css";
 
-function StudyList(): JSX.Element {
+interface StudyListProps {
+  currentUser: number;
+  setCurrentUser: React.Dispatch<React.SetStateAction<number>>;
+}
+
+function StudyList(props: StudyListProps): JSX.Element {
   return (
     <div className="body-grid">
-      <SideBarMenu />
+      <SideBarMenu
+        currentUser={props.currentUser}
+        setCurrentUser={props.setCurrentUser}
+      />
       <div>
         <h1>StudyList</h1>
+        <p>{props.currentUser}</p>
       </div>
     </div>
   );

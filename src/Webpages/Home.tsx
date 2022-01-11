@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import SideBarMenu from "../components/sidebarmenu";
-import RecommendationPreview from "../components/recommendationPreview";
-import { recommendation } from "../components/recommendationPreview";
+import RecentRecs from "../components/recommendationPreview";
+import { recommendationProps } from "../components/recommendationPreview";
 import "../css/app.css";
 
-function Home(): JSX.Element {
-  const [displayRecs, setDisplayRecs] = useState<recommendation[]>([]);
+interface HomeProps {
+  currentUser: number;
+  setCurrentUser: React.Dispatch<React.SetStateAction<number>>;
+}
+
+function Home(props: HomeProps): JSX.Element {
+  const [displayRecs, setDisplayRecs] = useState<recommendationProps[]>([]);
 
   useEffect(() => {
     const fetchEpisodes = async () => {
@@ -20,7 +25,7 @@ function Home(): JSX.Element {
   }, []);
 
   const recentrecs = displayRecs.map((rec, index) => (
-    <RecommendationPreview
+    <RecentRecs
       key={index}
       id={rec.id}
       title={rec.title}
@@ -29,13 +34,18 @@ function Home(): JSX.Element {
       summary={rec.summary}
       link={rec.link}
       user_id={rec.user_id}
+      name={rec.name}
     />
   ));
 
   return (
     <div className="body-grid">
-      <SideBarMenu />
+      <SideBarMenu
+        currentUser={props.currentUser}
+        setCurrentUser={props.setCurrentUser}
+      />
       <div className="content">
+        <p>{props.currentUser}</p>
         <h1>C3C4 Recommendations</h1>
         {recentrecs}
       </div>
