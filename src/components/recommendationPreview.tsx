@@ -9,12 +9,23 @@ export interface recSummaryProps {
   link: string;
   user_id: number;
   name: string;
+  setCurrentRec: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export default function RecentRecs(props: recSummaryProps): JSX.Element {
   return (
     <div className="rec-preview">
-      <p>{props.title}</p>
+      <a href="/recommended">
+        <button
+          value={props.id.toString()}
+          onClick={(e) => {
+            props.setCurrentRec(parseInt(e.target.value));
+          }}
+        >
+          {props.title}
+        </button>
+      </a>
+      <br />
       <a href={props.link}>Click Here</a>
       <p>{props.summary}</p>
       <p>uploaded by {props.author}</p>
