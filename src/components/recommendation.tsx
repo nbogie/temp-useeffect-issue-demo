@@ -1,7 +1,5 @@
-import "../css/recPreview.css";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { RecProps } from "../utils/RecProps";
-import { Link } from "react-router-dom";
 
 interface CurrentRecProps {
   currentRec: number;
@@ -10,14 +8,19 @@ interface CurrentRecProps {
 export default function Recommendation({
   currentRec,
 }: CurrentRecProps): JSX.Element {
+  console.log('Recommendation component is rendering.  currentRec: ', currentRec)
+
+
   const [rec, setRec] = useState<RecProps>({
     recInfo: [],
     comments: [],
     tags: [],
   });
 
+
   const fetchRec = async () => {
     if (currentRec !== 0) {
+      console.log('Fetching rec with id: ', currentRec);
       const response = await fetch(
         `https://backend-c3c4.herokuapp.com/rec/${currentRec}`
       );
@@ -28,13 +31,12 @@ export default function Recommendation({
 
   useEffect(() => {
     fetchRec();
+
   }, []);
   return (
     <div>
       {rec.recInfo.length === 0 ? (
-        <div>
-          <Link to="/">Return to Home page</Link>
-        </div>
+        <p>No Recommendation selected</p>
       ) : (
         <div>
           <h1>{rec.recInfo[0].title}</h1>
@@ -46,16 +48,6 @@ export default function Recommendation({
             {rec.recInfo[0].status}: {rec.recInfo[0].reason}
           </p>
           <p>Summary: {rec.recInfo[0].summary}</p>
-          <div>
-            {rec.comments.length !== 0 && (
-              <div>
-                <h5>Comments:</h5>
-                <p>{rec.comments[0].comment}</p>
-                <p>{rec.comments[0].submit_time}</p>
-              </div>
-            )}
-          </div>
-          <p>{rec.tags[0].tag}</p>
         </div>
       )}
     </div>
