@@ -7,6 +7,7 @@ import { useState } from "react";
 
 function WebsiteRoutes(): JSX.Element {
   const [currentUser, setCurrentUser] = useState<number>(0);
+  const [currentRec, setCurrentRec] = useState<number>(0);
 
   return (
     <Router>
@@ -14,7 +15,12 @@ function WebsiteRoutes(): JSX.Element {
         <Route
           path="/"
           element={
-            <Home currentUser={currentUser} setCurrentUser={setCurrentUser} />
+            <Home
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+              currentRec={currentRec}
+              setCurrentRec={setCurrentRec}
+            />
           }
         />
         <Route
@@ -32,6 +38,8 @@ function WebsiteRoutes(): JSX.Element {
             <Recommended
               currentUser={currentUser}
               setCurrentUser={setCurrentUser}
+              currentRec={currentRec}
+              setCurrentRec={setCurrentRec}
             />
           }
         />
