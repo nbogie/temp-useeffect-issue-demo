@@ -7,6 +7,8 @@ import "../css/app.css";
 interface HomeProps {
   currentUser: number;
   setCurrentUser: React.Dispatch<React.SetStateAction<number>>;
+  currentRec: number;
+  setCurrentRec: React.Dispatch<React.SetStateAction<number>>;
 }
 
 function Home(props: HomeProps): JSX.Element {
@@ -35,6 +37,7 @@ function Home(props: HomeProps): JSX.Element {
       link={rec.link}
       user_id={rec.user_id}
       name={rec.name}
+      setCurrentRec={props.setCurrentRec}
     />
   ));
 
