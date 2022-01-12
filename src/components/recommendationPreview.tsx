@@ -1,6 +1,6 @@
 import "../css/recPreview.css";
 
-export interface recommendationProps {
+export interface recSummaryProps {
   id: number;
   title: string;
   author: string;
@@ -11,7 +11,7 @@ export interface recommendationProps {
   name: string;
 }
 
-export default function RecentRecs(props: recommendationProps): JSX.Element {
+export default function RecentRecs(props: recSummaryProps): JSX.Element {
   return (
     <div className="rec-preview">
       <p>{props.title}</p>
