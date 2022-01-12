@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../css/recPreview.css";
 
 export interface recSummaryProps {
@@ -15,16 +16,14 @@ export interface recSummaryProps {
 export default function RecentRecs(props: recSummaryProps): JSX.Element {
   return (
     <div className="rec-preview">
-      <a href="/recommended">
-        <button
-          value={props.id.toString()}
-          onClick={(e) => {
-            props.setCurrentRec(parseInt(e.target.value));
-          }}
-        >
-          {props.title}
-        </button>
-      </a>
+      <Link
+        to="/recommended"
+        onClick={() => {
+          props.setCurrentRec(props.id);
+        }}
+      >
+        {props.title}
+      </Link>
       <br />
       <a href={props.link}>Click Here</a>
       <p>{props.summary}</p>

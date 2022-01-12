@@ -1,6 +1,7 @@
 import "../css/recPreview.css";
 import { useEffect, useState } from "react";
 import { RecProps } from "../utils/RecProps";
+import { Link } from "react-router-dom";
 
 interface CurrentRecProps {
   currentRec: number;
@@ -16,37 +17,47 @@ export default function Recommendation({
   });
 
   const fetchRec = async () => {
-    const response = await fetch(
-      `https://backend-c3c4.herokuapp.com/rec/${currentRec}`
-    );
-    const jsonBody = await response.json();
-    setRec(jsonBody.data);
+    if (currentRec !== 0) {
+      const response = await fetch(
+        `https://backend-c3c4.herokuapp.com/rec/${currentRec}`
+      );
+      const jsonBody = await response.json();
+      setRec(jsonBody.data);
+    }
   };
-
   useEffect(() => {
     fetchRec();
   }, []);
   console.log(currentRec);
   return (
-    <p>hello</p>
-    // <div>
-    //   {rec.recInfo.length !== 0 && (
-    //     <div>
-    //       <h1>{rec.recInfo[0].title}</h1>
-    //       <h3>By: {rec.recInfo[0].author}</h3>
-    //       <h4>
-    //         Submitted by: {rec.recInfo[0].name} on {rec.recInfo[0].submit_time}
-    //       </h4>
-    //       <p>
-    //         {rec.recInfo[0].status}: {rec.recInfo[0].reason}
-    //       </p>
-    //       <p>Summary: {rec.recInfo[0].summary}</p>
-    //       <h5>Comments:</h5>
-    //       <p>{rec.comments[0].comment}</p>
-    //       <p>{rec.comments[0].submit_time}</p>
-    //       <p>{rec.tags[0].tag}</p>
-    //     </div>
-    //   )}
-    // </div>
+    <div>
+      {rec.recInfo.length === 0 ? (
+        <div>
+          <Link to="/">Return to Home page</Link>
+        </div>
+      ) : (
+        <div>
+          <h1>{rec.recInfo[0].title}</h1>
+          <h3>By: {rec.recInfo[0].author}</h3>
+          <h4>
+            Submitted by: {rec.recInfo[0].name} on {rec.recInfo[0].submit_time}
+          </h4>
+          <p>
+            {rec.recInfo[0].status}: {rec.recInfo[0].reason}
+          </p>
+          <p>Summary: {rec.recInfo[0].summary}</p>
+          <div>
+            {rec.comments.length !== 0 && (
+              <div>
+                <h5>Comments:</h5>
+                <p>{rec.comments[0].comment}</p>
+                <p>{rec.comments[0].submit_time}</p>
+              </div>
+            )}
+          </div>
+          <p>{rec.tags[0].tag}</p>
+        </div>
+      )}
+    </div>
   );
 }
