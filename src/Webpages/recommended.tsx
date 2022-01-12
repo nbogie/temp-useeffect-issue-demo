@@ -5,6 +5,8 @@ import "../css/app.css";
 interface RecommendedProps {
   currentUser: number;
   setCurrentUser: React.Dispatch<React.SetStateAction<number>>;
+  currentRec: number;
+  setCurrentRec: React.Dispatch<React.SetStateAction<number>>;
 }
 
 function Recommended(props: RecommendedProps): JSX.Element {
@@ -15,7 +17,7 @@ function Recommended(props: RecommendedProps): JSX.Element {
         setCurrentUser={props.setCurrentUser}
       />
 
-      <Recommendation />
+      <Recommendation currentRec={props.currentRec} />
     </div>
   );
 }
