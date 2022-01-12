@@ -16,18 +16,19 @@ export default function Recommendation({
     tags: [],
   });
 
+  const fetchRec = async () => {
+    if (currentRec !== 0) {
+      const response = await fetch(
+        `https://backend-c3c4.herokuapp.com/rec/${currentRec}`
+      );
+      const jsonBody = await response.json();
+      setRec(jsonBody.data);
+    }
+  };
+
   useEffect(() => {
-    const fetchRec = async () => {
-      if (currentRec !== 0) {
-        const response = await fetch(
-          `https://backend-c3c4.herokuapp.com/rec/${currentRec}`
-        );
-        const jsonBody = await response.json();
-        setRec(jsonBody.data);
-      }
-    };
     fetchRec();
-  }, [currentRec]);
+  }, []);
   return (
     <div>
       {rec.recInfo.length === 0 ? (
