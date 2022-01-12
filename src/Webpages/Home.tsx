@@ -45,7 +45,6 @@ function Home(props: HomeProps): JSX.Element {
         setCurrentUser={props.setCurrentUser}
       />
       <div className="content">
-        <p>{props.currentUser}</p>
         <h1>C3C4 Recommendations</h1>
         {recentrecs}
       </div>

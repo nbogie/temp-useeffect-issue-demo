@@ -15,7 +15,6 @@ function StudyList(props: StudyListProps): JSX.Element {
       />
       <div>
         <h1>StudyList</h1>
-        <p>{props.currentUser}</p>
       </div>
     </div>
   );
