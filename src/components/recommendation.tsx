@@ -27,7 +27,7 @@ export default function Recommendation({
       }
     };
     fetchRec();
-  },[currentRec]);
+  }, [currentRec]);
   return (
     <div>
       {rec.recInfo.length === 0 ? (
