@@ -24,6 +24,16 @@ export default function SideBarMenu(props: SidebarProps): JSX.Element {
     });
   }, []);
 
+  function getUserName(id: number) {
+    let name = "";
+    for (const user of users) {
+      if (user.id === id) {
+        name = user.name;
+      }
+    }
+    return name;
+  }
+
   const usersList = users.map((element, index) => (
     <option value={element.id} key={index}>
       {element.name}
@@ -50,20 +60,41 @@ export default function SideBarMenu(props: SidebarProps): JSX.Element {
           <span className="span">The Social Academy</span>
         </Link>
         <br id="inner" />
-        <select
-          className="login-dropdown"
-          name="login"
-          id="inner"
-          value={props.currentUser}
-          onChange={(e) => {
-            props.setCurrentUser(parseInt(e.target.value));
-          }}
-        >
-          <option value={0} disabled>
-            Choose name to log in
-          </option>
-          {usersList}
-        </select>
+        {props.currentUser === 0 && (
+          <select
+            className="login-dropdown"
+            name="login"
+            id="inner"
+            value={props.currentUser}
+            onChange={(e) => {
+              props.setCurrentUser(parseInt(e.target.value));
+            }}
+          >
+            <option value={0} disabled>
+              Choose name to log in
+            </option>
+            {usersList}
+          </select>
+        )}
+        {props.currentUser !== 0 && (
+          <div className="logged-in">
+            <p>You are logged in as {getUserName(props.currentUser)}</p>
+            {/* <p>{}</p> */}
+            <Link className="sidebarbutton" id="inner" to="#">
+              <span
+                className="span"
+                onClick={() => {
+                  props.setCurrentUser(0);
+                }}
+              >
+                Log out
+              </span>
+            </Link>
+          </div>
+        )}
+
+        {/* <br id="inner" /> */}
+
         <br id="inner" />
         <br id="inner" />
         <NewModal />
